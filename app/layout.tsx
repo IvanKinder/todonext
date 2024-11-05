@@ -4,6 +4,8 @@ import "./globals.css";
 import { usePathname } from "next/navigation";
 import Link from "next/link";
 import Button from "@mui/material/Button";
+import { Provider } from 'react-redux';
+import store from '../store';
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -33,11 +35,13 @@ export default function RootLayout({
 }>) {
   const pathname = usePathname();
   return (
-    <html lang="en">
-      <body className={`${geistSans.variable} ${geistMono.variable}`}>
-      {pathname !== "/" ? <ToHomeBtn/> : <></>}
-      {children}
-      </body>
-    </html>
+    <Provider store={store}>
+      <html lang="en">
+        <body className={`${geistSans.variable} ${geistMono.variable}`}>
+        {pathname !== "/" ? <ToHomeBtn/> : <></>}
+        {children}
+        </body>
+      </html>
+    </Provider>
   );
 }
