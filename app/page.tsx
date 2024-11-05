@@ -11,7 +11,9 @@ const Home: React.FC = () => {
       <Link href="add-todo">
         <Button variant="outlined">Добавить Задачу</Button>
       </Link>
-      <Button variant="outlined">Список задач</Button>
+      <Link href="todo-list">
+        <Button variant="outlined">Список задач</Button>
+      </Link>
       </div>
     </div>
   );
